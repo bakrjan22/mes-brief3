@@ -67,16 +67,34 @@ function show() {
     create_card(produits[i].nom,produits[i].prix,i);
   }
 }
+function check_validation() {
+  let name = input_name.value;
+  let price = input_price.value;
 
+  if (name == "" || price == "") {
+    alert("un champ na pas etais saisie");
+    return false;
+  }
+}
+
+function clear_input() {
+  input_name.value = "";
+  input_price.value = "";
+}
 
 compteur.textContent = produits.length;
 add_button.addEventListener('click', (e) => {
+
+  if(check_validation() == false) {
+    return;
+  }
+
   e.preventDefault();
   add_input();
   get_totale();
   compteur.textContent = produits.length;
   get_totale();
-
+  clear_input();
   show();
 })
 
