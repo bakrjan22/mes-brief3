@@ -5,6 +5,7 @@ let produits = [
 ];
 let prochainId = 3;
 
+//d
 // À vous de jouer :
 // 1. Afficher les produits du tableau au chargement.
 // 2. Gérer l’ajout depuis le formulaire.
