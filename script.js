@@ -54,6 +54,7 @@ function create_card(product_name,product_price,i) {
   button_add_product.addEventListener("click", () => {
     produits.splice(i,1);
     compteur.textContent = produits.length;
+    get_totale();
     show();
   })
   
@@ -74,6 +75,8 @@ add_button.addEventListener('click', (e) => {
   add_input();
   get_totale();
   compteur.textContent = produits.length;
+  get_totale();
+
   show();
 })
 
