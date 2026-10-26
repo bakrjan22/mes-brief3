@@ -10,7 +10,7 @@ const input_price = document.getElementById("prix");
 const add_button = document.getElementById("submit");
 const product_list = document.getElementById("liste-produits");
 const text_totale = document.getElementById("total");
-
+const compteur = document.getElementById("compteur");
 function add_input() {
   produits.push({
     id:produits.length + 1,
@@ -18,14 +18,16 @@ function add_input() {
     prix:input_price.value,
   })
  // console.log(produits[produits.length - 1]);
-
 }
-
+get_totale();
 function get_totale() {
   let totale = 0;
   for(let i = 0;i<produits.length;i++) {
-    totale = totale + produits[i].prix;
-  }}
+    totale += parseInt(produits[i].prix);
+  }
+  console.log(totale);
+  text_totale.textContent = totale;
+}
 
 function create_card(product_name,product_price,i) {
 
@@ -51,6 +53,7 @@ function create_card(product_name,product_price,i) {
 
   button_add_product.addEventListener("click", () => {
     produits.splice(i,1);
+    compteur.textContent = produits.length;
     show();
   })
   
@@ -65,11 +68,12 @@ function show() {
 }
 
 
-
+compteur.textContent = produits.length;
 add_button.addEventListener('click', (e) => {
   e.preventDefault();
   add_input();
   get_totale();
+  compteur.textContent = produits.length;
   show();
 })
 
